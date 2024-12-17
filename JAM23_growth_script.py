@@ -442,7 +442,7 @@ for j in range(5):
             # ======================================================
             StepName = 'pressure'
             TotalTime = 1
-            MS = 10 
+            MS = 100 
             Step = [StepName, TotalTime, MS]
 
             # ======================================================
@@ -451,10 +451,10 @@ for j in range(5):
             CorticalMaterial = 'GRAY'
             SubCortMaterial = 'WHIT'
             mu_subcortex = 1e-3
-            bulk_subcortex = 1000*mu_subcortex         
+            bulk_subcortex = 100*mu_subcortex         
             lambda_subcortex = bulk_subcortex-(2*mu_subcortex/3) 
             Gctx =  2.0 
-            density = 1e-12 
+            density = 1e-11
             ratio = [1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 6, 8, 10, 15, 20, 30, 40, 50, 60, 70, 80 ,90, 100, 200, 400, 600, 800, 1000]
             Materials = [CorticalMaterial, SubCortMaterial, mu_subcortex, lambda_subcortex, Gctx, density, ratio]
 
@@ -487,7 +487,7 @@ for j in range(5):
             Create_Assembly(ModelName, PartName, InstanceName, Dimensions)
             Create_Sets(ModelName, PartName, Dimensions)
             Create_Boundary_Conditions(ModelName, InstanceName, Step)
-            ## comment out for zero-pressure cases 
+            ## Comment out for zero-pressure cases 
             Create_Pressure(ModelName, InstanceName, Step, top_p)
             Create_VP(ModelName, InstanceName, Step, VP)
             Create_Contact(ModelName, InstanceName, Step, Dimensions)   
