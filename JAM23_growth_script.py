@@ -487,7 +487,7 @@ for j in range(5):
             Create_Assembly(ModelName, PartName, InstanceName, Dimensions)
             Create_Sets(ModelName, PartName, Dimensions)
             Create_Boundary_Conditions(ModelName, InstanceName, Step)
-            # Create_Pressure(ModelName, InstanceName, Step, top_p) ## Comment for zero-pressure cases 
+            # Create_Pressure(ModelName, InstanceName, Step, top_p) ## Comment out for non zero-pressure cases 
             Create_VP(ModelName, InstanceName, Step, VP)
             Create_Contact(ModelName, InstanceName, Step, Dimensions)   
             Create_Mesh(ModelName, PartName, InstanceName, Step, Dimensions)
