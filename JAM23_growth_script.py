@@ -69,7 +69,7 @@ def Create_Rigid_wall(ModelName):
     g, v, d, c = s1.geometry, s1.vertices, s1.dimensions, s1.constraints
     s1.setPrimaryObject(option=STANDALONE)
 
-    s1.rectangle(point1=(0.0, -50.0), point2=(-2.0, 30.0))
+    s1.rectangle(point1=(0.0, -20.0), point2=(-2.0, 10.0))
     p = mdb.models[ModelName].Part(name='wall', dimensionality=THREE_D, type=DISCRETE_RIGID_SURFACE)
     p = mdb.models[ModelName].parts['wall']
     p.BaseShell(sketch=s1)
