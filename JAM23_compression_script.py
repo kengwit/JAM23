@@ -438,7 +438,7 @@ for j in range(5):
             # ======================================================
             StepName = 'pressure'
             TotalTime = 1
-            MS = 10 
+            MS = 100 # Dont change this one 
             Step = [StepName, TotalTime, MS]
 
             # ======================================================
@@ -447,9 +447,9 @@ for j in range(5):
             CorticalMaterial = 'GRAY'
             SubCortMaterial = 'WHIT'
             mu_subcortex = 1e-3
-            bulk_subcortex = 1000*mu_subcortex         
+            bulk_subcortex = 100*mu_subcortex  # Dont change this one       
             lambda_subcortex = bulk_subcortex-(2*mu_subcortex/3) 
-            density = 1e-12 
+            density = 1e-11 # Dont change this one 
             ratio = [1, 1.25, 1.5, 1.75, 2, 2.25, 2.5, 2.75, 3, 3.25, 3.5, 3.75, 4, 6, 8, 10, 15, 20, 30, 40, 50, 60, 70, 80 ,90, 100, 200, 400, 600, 800, 1000]
             Materials = [CorticalMaterial, SubCortMaterial, mu_subcortex, lambda_subcortex, density, ratio]
 
@@ -458,7 +458,7 @@ for j in range(5):
             # ======================================================
             pressure_ratio = [0.5*1e-3, 1.0*1e-3, 2.0*1e-3, 3.0*1e-3, 4.0*1e-3]
             top_p = ratio[i]*pressure_ratio[j]
-            VP = 1e-5 
+            VP = 1e-5 # Dont change this one
             displacement = [50, 49, 48, 47, 46, 45, 44, 43, 42, 41, 40, 39, 38, 36, 34, 32, 30, 28, 26, 24, 22, 20, 18, 16 ,14, 12, 6, 6, 6, 6, 6]
             # ======================================================
                 # Model
@@ -478,8 +478,7 @@ for j in range(5):
             Create_Assembly(ModelName, PartName, InstanceName, Dimensions)
             Create_Sets(ModelName, PartName, Dimensions)
             Create_Boundary_Conditions(ModelName, InstanceName, Step, displacement[i])
-            ## comment out for zero-pressure cases 
-            Create_Pressure(ModelName, InstanceName, Step, top_p)
+            # Create_Pressure(ModelName, InstanceName, Step, top_p)             ## comment out for non zero-pressure cases 
             Create_VP(ModelName, InstanceName, Step, VP)
             Create_Contact(ModelName, InstanceName, Step, Dimensions)   
             Create_Mesh(ModelName, PartName, InstanceName, Step, Dimensions)
